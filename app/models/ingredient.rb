@@ -2,7 +2,6 @@ class Ingredient < ActiveRecord::Base
   belongs_to :recipe
   belongs_to :item
 
-  #could use an invisible attribute in the field to read item_name and item_unit then nicely find or create an item
   def item_name=(name)
     # check if item_unit has been set first
     if self.item.nil?
@@ -22,19 +21,13 @@ class Ingredient < ActiveRecord::Base
   end
   
   def item_name
-    if self.item
-      return self.item.name
-    else
+      return self.item.name unless self.item.nil?
       return ""
-    end
   end
   
   def item_unit
-    if self.item
-      return self.item.unit
-    else
+      return self.item.unit unless self.item.nil?
       return ""
-    end
   end
   
 
