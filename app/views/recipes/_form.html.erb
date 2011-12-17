@@ -16,9 +16,11 @@
     <%= f.text_field :name %>
   </div>
 
-	<%= f.fields_for :ingredients do |task_form| %>
-		<%= task_form.text_field :quantity %>
-		<%= task_form.link_to_remove "Remove" %>
+	<%= f.fields_for :ingredients do |ingredient_form| %>
+		<%= ingredient_form.text_field :quantity %>
+		<%= ingredient_form.text_field :item_unit %>
+		<%= ingredient_form.text_field :item_name %>
+		<%= ingredient_form.link_to_remove "Remove" %>
 	<% end %>
 	
 	<p><%= f.link_to_add "Add", :ingredients %></p>

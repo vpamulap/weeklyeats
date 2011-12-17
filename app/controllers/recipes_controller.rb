@@ -40,6 +40,8 @@ class RecipesController < ApplicationController
   # POST /recipes
   # POST /recipes.json
   def create
+    logger.debug "Recipe hash: #{params[:recipe]}"
+    
     @recipe = Recipe.new(params[:recipe])
 
     respond_to do |format|
