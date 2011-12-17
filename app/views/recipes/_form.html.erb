@@ -18,8 +18,8 @@
 
 	<%= f.fields_for :ingredients do |ingredient_form| %>
 		<%= ingredient_form.text_field :quantity %>
-		<%= ingredient_form.text_field :item_unit %>
-		<%= ingredient_form.text_field :item_name %>
+		<%= ingredient_form.text_field :unit %>
+		<%= ingredient_form.text_field :name %>
 		<%= ingredient_form.link_to_remove "Remove" %>
 	<% end %>
 	
