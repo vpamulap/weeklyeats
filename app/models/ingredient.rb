@@ -16,6 +16,7 @@ class Ingredient < ActiveRecord::Base
   end
   
   def create_item
+    #creates if exception for seeds.rb which creates items manually and assigns ids
     self.item = Item.find_or_create_by_name(name:@name, unit:@unit) if item_id.nil?
   end
   
