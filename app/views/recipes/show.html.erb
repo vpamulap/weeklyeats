@@ -3,8 +3,15 @@
 <p>
   <b>Name:</b>
   <%= @recipe.name %>
+  <br /><br />
+  
+  <b>Ingredients</b>
+  <ul>
+    <% @recipe.ingredients.each do |ingredient| %>
+    <li><%= pluralize( ingredient.quantity, ingredient.item.unit ) + " " + ingredient.item.name %></li>
+    <% end %>
+  </ul>
 </p>
-
 
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>

@@ -6,7 +6,7 @@ class Ingredient < ActiveRecord::Base
   before_update :update_item
   
   attr_writer :name, :unit
-  
+
   def name
     (self.item.nil?) ? "" : self.item.name
   end
@@ -15,6 +15,8 @@ class Ingredient < ActiveRecord::Base
     (self.item.nil?) ? "" : self.item.unit
   end
   
+  private
+
   def create_item
     #creates if exception for seeds.rb which creates items manually and assigns ids
     self.item = Item.find_or_create_by_name(name:@name, unit:@unit) if item_id.nil?
